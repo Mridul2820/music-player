@@ -4,7 +4,6 @@
     padding: 1rem 2rem;
     cursor: pointer;
     transition: .5s;
-    background: #fff;
 
     img {
         width: 30%;
@@ -12,6 +11,10 @@
 
     &:hover {
         background: rgb(222, 222, 225);
+    }
+
+    &.selected {
+        background: violet;
     }
 }
 
