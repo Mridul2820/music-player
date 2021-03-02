@@ -1,4 +1,4 @@
-# Music Player React App (Not Compleated)
+# Music Player React App
 
 ## Available Deploy on Netlify
 
