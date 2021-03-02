@@ -20,8 +20,6 @@ const LibrarySong = ({ song, songs, setSongs, id, setCurrentSong, audioRef, isPl
         })
 
         setSongs(newSongs)
-
-
         
         if(isPlaying) {
             const playPromise = audioRef.current.play()
