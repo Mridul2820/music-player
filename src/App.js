@@ -21,7 +21,8 @@ const App = () => {
     const [currentSong, setCurrentSong] = useState(songs[0])
     const [isPlaying, setIsPlaying] = useState(false)
     const [libraryStatus, setLibraryStatus] = useState(false)
-    
+    const [songvolume, setSongVolume] = useState(.8)
+
     const timeUpdateHandler = (e) => {
         const current = e.target.currentTime;
         const duration = e.target.duration;
@@ -31,13 +32,13 @@ const App = () => {
         setSongInfo({...songInfo, currentTime: current, duration, animationPercentage: animation})
     }
 
-     const songEndHandler = async() => {
+    const songEndHandler = async() => {
         let currentIndex = songs.findIndex(song => song.id === currentSong.id)
         await setCurrentSong(songs[(currentIndex + 1) % songs.length])
         if(isPlaying) {
             audioRef.current.play()
         }
-     }
+    }
 
     return (
         <div className={`App ${libraryStatus ? 'library-active' : ''}`}>
@@ -56,6 +57,8 @@ const App = () => {
                 setIsPlaying={setIsPlaying} 
                 songInfo={songInfo}
                 setSongInfo={setSongInfo}
+                songvolume={songvolume}
+                setSongVolume={setSongVolume}
             />
             <Library 
                 songs={songs} 
@@ -66,6 +69,7 @@ const App = () => {
                 libraryStatus={libraryStatus} 
             />
             <audio 
+                className="audio"
                 onTimeUpdate={timeUpdateHandler} 
                 onLoadedMetadata={timeUpdateHandler} 
                 ref={audioRef} 

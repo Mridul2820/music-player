@@ -14,7 +14,7 @@
         width: 90%;
     }
     
-    input {
+    input.song-range {
         width: 100%;
         -webkit-appearance: none;
         background: transparent;
@@ -23,6 +23,23 @@
 
     p {
         padding: 0 1rem;
+    }
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    justify-content: center;
+
+    .volume {
+        margin: 0 1rem;
+        cursor: pointer;
+    }
+
+    input.volume-range {
+        width: 35%;
+        cursor: pointer;
     }
 }
 
@@ -42,7 +59,7 @@
     }
 }
 
-input[type="range"] {
+input.song-range {
     &:focus {
         outline: none;
     }

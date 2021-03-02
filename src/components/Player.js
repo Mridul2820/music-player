@@ -1,8 +1,8 @@
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faAngleLeft, faAngleRight, faPause } from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faAngleLeft, faAngleRight, faPause, faVolumeMute, faVolumeUp } from "@fortawesome/free-solid-svg-icons";
 
-const Player = ({ songs, setSongs, currentSong, setCurrentSong, isPlaying, setIsPlaying, audioRef, songInfo, setSongInfo }) => {
+const Player = ({ songs, setSongs, currentSong, setCurrentSong, isPlaying, setIsPlaying, audioRef, songInfo, setSongInfo, songvolume, setSongVolume }) => {
 
     const activeLibraryHandler = (nextPrev) => {
         const newSongs = songs.map(song => {
@@ -37,6 +37,22 @@ const Player = ({ songs, setSongs, currentSong, setCurrentSong, isPlaying, setIs
     const dragHandler = (e) => {
         audioRef.current.currentTime = e.target.value
         setSongInfo({...songInfo, currentTime: e.target.value })
+    }
+
+    const volumeHandler = (e) => {
+        setSongVolume(e)
+        audioRef.current.volume = e;
+    }
+
+    const volumeMinMaxHandler = (vol) => {
+        if(vol === "mute") {
+            setSongVolume(0)
+            audioRef.current.volume = 0;
+        }
+        if(vol === "full") {
+            setSongVolume(1)
+            audioRef.current.volume = 1;
+        }
     }
 
     const getTime = (time) => {
@@ -80,6 +96,7 @@ const Player = ({ songs, setSongs, currentSong, setCurrentSong, isPlaying, setIs
                     style={{background: `linear-gradient(to right, ${currentSong.color[0]}, ${currentSong.color[1]})`}} 
                     className="track">
                     <input 
+                        className="song-range"
                         min={0} 
                         max={songInfo.duration || 0} 
                         value={songInfo.currentTime} 
@@ -90,12 +107,34 @@ const Player = ({ songs, setSongs, currentSong, setCurrentSong, isPlaying, setIs
                 </div>
                 <p>{songInfo.duration ? getTime(songInfo.duration) : '0:00'}</p>
             </div>
+            <div className="volume-control">
+                <FontAwesomeIcon 
+                    icon={faVolumeMute}
+                    size="2x" 
+                    className="volume volume-up"
+                    onClick={() => volumeMinMaxHandler("mute")}
+                />
+                <input 
+                    value={Math.round(songvolume * 100)}
+                    min={0} 
+                    max={100} 
+                    type="range"
+                    className="volume-range"
+                    onChange={(e) => volumeHandler(e.target.value / 100)}
+                />
+                <FontAwesomeIcon 
+                    icon={faVolumeUp}
+                    size="2x" 
+                    className="volume volume-up"
+                    onClick={() => volumeMinMaxHandler("full")}
+                />
+            </div>
             <div className="play-control">
                 <FontAwesomeIcon 
                     onClick={() => skipTrackHandler("skip-back")}
-                    className='skip-back' 
-                    size="2x" 
-                    icon={faAngleLeft} 
+                    className='skip-back'
+                    size="2x"
+                    icon={faAngleLeft}
                 />
                 <FontAwesomeIcon 
                     className='play' 
