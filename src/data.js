@@ -61,6 +61,46 @@ function chillHop() {
             id: uuidv4(),
             active: false,
         },
+        {
+            name: "Kinsfolk",
+            cover:
+                "https://chillhop.com/wp-content/uploads/2021/02/7f102bdde417f6ead9a120b2b931449e5c12b4da-1024x1024.jpg",
+            artist: "Aarigod",
+            audio: "https://mp3.chillhop.com/serve.php/?mp3=12997",
+            color: ["#596843", "#3C4633"],
+            id: uuidv4(),
+            active: false,
+        },
+        {
+            name: "Momentary Loss",
+            cover:
+                "https://chillhop.com/wp-content/uploads/2021/02/7f102bdde417f6ead9a120b2b931449e5c12b4da-1024x1024.jpg",
+            artist: "Aarigod",
+            audio: "https://mp3.chillhop.com/serve.php/?mp3=13009",
+            color: ["#596843", "#3C4633"],
+            id: uuidv4(),
+            active: false,
+        },
+        {
+            name: "Beyond Clouds",
+            cover:
+                "https://chillhop.com/wp-content/uploads/2021/02/08cbb0848f669e1bd8b5a5152c4b7d20edf1b499-1024x1024.jpg",
+            artist: "Saib",
+            audio: "https://mp3.chillhop.com/serve.php/?mp3=9297",
+            color: ["#452618", "#492112"],
+            id: uuidv4(),
+            active: false,
+        },
+        {
+            name: "Evenfall",
+            cover:
+                "https://chillhop.com/wp-content/uploads/2021/02/7f102bdde417f6ead9a120b2b931449e5c12b4da-1024x1024.jpg",
+            artist: "Aarigod",
+            audio: "https://mp3.chillhop.com/serve.php/?mp3=13007",
+            color: ["#596843", "#3C4633"],
+            id: uuidv4(),
+            active: false,
+        },
         //ADD MORE HERE
     ];
 }
