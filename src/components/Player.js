@@ -41,13 +41,12 @@ const Player = ({ songs, setSongs, currentSong, setCurrentSong, isPlaying, setIs
 
     const volumeHandler = (e) => {
         setSongVolume(e)
-        audioRef.current.volume = e;
+        audioRef.current.volume = songvolume;
     }
 
     const volumeMinMaxHandler = (vol) => {
         if(vol === "mute") {
             setSongVolume(0)
-            audioRef.current.volume = 0;
         }
         if(vol === "full") {
             setSongVolume(1)
