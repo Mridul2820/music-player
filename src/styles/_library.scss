@@ -11,6 +11,10 @@
     transition: all .5s ease;
     background: #fff;
 
+    @media only screen and (max-width: $bp-small-1){
+        width: 100%;
+    }
+
     &.active {
         transform: translateX(0);
         opacity: 1;

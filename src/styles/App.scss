@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
+// Responsive Breakpoint
+$bp-large-1: 75em;      //1200px
+$bp-large-2: 59em;      //944px
+$bp-large-3: 48em;      //768px
+$bp-medium-1: 35em;     //560px
+$bp-medium-2: 35em;     //640px
+$bp-small-1: 30em;      //480px
+$bp-small-2: 27em;      //432px
+$bp-small-3: 22em;      //352px
+
 * {
     margin: 0;
     padding: 0;
@@ -9,6 +19,19 @@
 
 h1,h2,h3 {
     color: rgb(54, 54, 54);
+}
+
+h3, h4 {
+    font-weight: 400;
+    color: rgb(100, 100, 100)
+}
+
+.App {
+    transition: all .5s ease;
+}
+
+.library-active {
+    margin-left: 30%;
 }
 
 @import './player';

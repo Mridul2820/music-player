@@ -12,6 +12,10 @@ nav {
         transition: all .5s ease;
         border-radius: 5px;
 
+        @media only screen and (max-width: $bp-large-3){
+            z-index: 10;
+        }
+
         &:hover {
             background: rgb(65, 65, 65);
             color: #fff;
